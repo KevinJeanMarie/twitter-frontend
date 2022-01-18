@@ -9,7 +9,7 @@ function Global() {
             <div className="global">
                 {/*Header*/}
                 <div className="global_header">
-                <h2>Home</h2>
+                <h2>Home </h2>
                 </div>
                 
                 {/*TweetBox*/}
