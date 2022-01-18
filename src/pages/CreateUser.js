@@ -32,10 +32,23 @@ const H2 = styled.h2`
   
 }
 `
-
 const Logo = styled.div`
 {
     margin-top: 30px
+}
+`
+
+const Button = styled.button`
+{
+    background-color: white;
+    border: 2px solid gray;
+    border-radius: 50px;
+    color: gray;
+    font-weight: bold;
+    font-size: 0.7em;
+    padding: 0.9em 8em;
+    cursor: pointer;
+    margin-top: 20px
 }
 `
 
@@ -53,6 +66,7 @@ const CreateUser = () => {
                 <Logo><BsTwitter size="45px" /></Logo>
                 <H1>Ça se passe maintenant</H1>
                 <H2>Rejoignez Twitter dès aujourd'hui.</H2>
+                <Button>S'inscrire avec Google</Button>
             </div>
             
         </div>
