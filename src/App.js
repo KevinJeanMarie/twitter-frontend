@@ -1,37 +1,18 @@
 import React from "react";
-import Sidebar from "./components/Sidebar";
-import SidebarOption from "./components/SidebarOption";
-import Global from "./Global";
-import Widgets from "./components/Widgets";
-import TweetBox from "./components/TweetBox";
-import Post from "./components/Post";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Ap = styled.div`
-.app {
-  display: flex;
-  height: 100vh;
-  max-width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 10px;
-}
-`
+import CreateUser from "./pages/CreateUser";
+import Profil from "./pages/Profil"
 
-function App () {
+const App = () => {
     return (
-      // BEM
-      <Ap>
-      <div className="app">
-
-        {/*SIDEBAR*/}
-        <Sidebar />
-        {/*FEED*/}
-        <Global />
-        {/*WIDGETS*/}
-        <Widgets />
-      </div>
-      </Ap>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/create" element={<CreateUser />} />
+          <Route exact path="/profil" element={<Profil />} />
+        </Routes>
+      </BrowserRouter>
     );
   }
 
