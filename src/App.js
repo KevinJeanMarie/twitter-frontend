@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Sidebar from "./components/Sidebar";
+import SidebarOption from "./components/SidebarOption";
+import Global from "./Global";
+import Widgets from "./components/Widgets";
+import TweetBox from "./components/TweetBox";
+import Post from "./components/Post";
+import styled from 'styled-components'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const Ap = styled.div`
+.app {
+  display: flex;
+  height: 100vh;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px;
 }
+`
+
+function App () {
+    return (
+      // BEM
+      <Ap>
+      <div className="app">
+
+        {/*SIDEBAR*/}
+        <Sidebar />
+        {/*FEED*/}
+        <Global />
+        {/*WIDGETS*/}
+        <Widgets />
+      </div>
+      </Ap>
+    );
+  }
 
 export default App;
