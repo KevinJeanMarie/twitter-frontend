@@ -18,7 +18,7 @@ const Ap = styled.div`
 }
 `
 
-const Profil = () => {
+const Profile = () => {
     return (
         <Ap>
         <div className="app">
@@ -34,4 +34,4 @@ const Profil = () => {
     );
 };
 
-export default Profil;
+export default Profile;
