@@ -1,5 +1,8 @@
 import React from 'react';
+import { useContext } from "react"
 import styled from 'styled-components';
+import { useFormik } from 'formik'
+import { UserContext } from "../contexts/User"
 
 const TweetBoxx = styled.div`
 .tweetBox {
@@ -42,14 +45,33 @@ padding: 10px;
 }
 `
 
-function TweetBox() {
+const TweetBox = () => {
+    const { createTweet } = useContext(UserContext)
+
+    const formik = useFormik({
+        initialValues: {
+            contents: "",
+        onSubmit: values => {
+          createTweet(values)
+        },
+    }
+    })
+
     return (
         <TweetBoxx>
         <div className="tweetBox">
             <form>
                 <div className="tweetBox_input">
                 <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
-                <input placeholder="What's happening?" type="text"></input>
+                <input 
+                placeholder="What's happening?" 
+                type="text" 
+                name="contents"
+                value={formik.values.contents}
+                onChange={formik.handleChange}
+                />
+                
+               
                 </div>
                 {/* <input className="tweetBox_imageInput" placeholder="Enter image URL" type="text" /> */}
                 <button type="button" 

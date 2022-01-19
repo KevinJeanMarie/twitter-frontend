@@ -66,11 +66,31 @@ const UserContextProvider = ({ children }) => {
     await response.json()
   }
 
-  
+
+  const createTweet =  async values => {
+    const id = user.id
+    const response = await fetch(`http://localhost:5000/tweets/${id}`, {
+          method: 'post',
+          headers: {
+              'Content-type': 'application/json',
+          },
+          credentials: 'include',
+          body: JSON.stringify({
+            contens: values.contents,
+        })
+      })
+      await response.json()
+      console.log(response)
+      console.log(user)
+
+  }
+
+
   const value = {
     signup,
     user,
     getUser,
+    createTweet
   }
 
   return (
