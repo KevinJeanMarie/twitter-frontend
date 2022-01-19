@@ -1,4 +1,5 @@
 import React from "react";
+import { useContext, useEffect, useState } from 'react'
 import SidebarOption from "./SidebarOption";
 // import { createSidebarStyle } from 'styled-components';
 import styled from 'styled-components';
@@ -12,7 +13,8 @@ import { RiFileList2Line } from 'react-icons/ri';
 import { AiOutlineUser } from 'react-icons/ai';
 import { CgMoreO } from 'react-icons/cg';
 import { GoVerified } from 'react-icons/go';
-
+import { UserContext } from ".././contexts/User"
+import CreateTweetForm from "./Tweet/CreateTweetForm";
 
 const Sidbar = styled.div`
 .sidebar {
@@ -44,80 +46,80 @@ const Sidbar = styled.div`
     height: 40px;
     }
 
-    .post_headerspecialsidebar {
-        font-weight: 400;
-        font-size: 15px;
-        color: gray;
-        margin-bottom: 10px;
-        display: flex;
-    }
+.post_headerspecialsidebar {
+    font-weight: 400;
+    font-size: 15px;
+    color: gray;
+    margin-bottom: 10px;
+    display: flex;
+}
 
-    .post_headerspecialsidebar h6 {
-        font-weight: 700;
-        font-size: 14px;
-        color: black;
-        margin-bottom: -5px;
-    }
+.post_headerspecialsidebar h6 {
+    font-weight: 700;
+    font-size: 14px;
+    color: black;
+    margin-bottom: -5px;
+}
 
-    .post_headerspecialsidebar p {
-        font-weight: 400;
-        font-size: 14px;
-        color: gray;
-    }
+.post_headerspecialsidebar p {
+    font-weight: 400;
+    font-size: 14px;
+    color: gray;
+}
 
-    .verified {
-        color: rgb(51, 185, 238);
-    }
+.verified {
+    color: rgb(51, 185, 238);
+}
 
-    .post_avatarsidebar:hover {
-        background-color: rgb(228, 224, 224);
-    border-radius: 30px;
-    color: rgb(32, 180, 238)
-    }
-
+.post_avatarsidebar:hover {
+background-color: rgb(228, 224, 224);
+border-radius: 30px;
+color: rgb(32, 180, 238)
+}
 `
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+    const { user, getUser } = useContext(UserContext)
+    
     return (
         <Sidbar>
-<div className="sidebar">
-    {/*TWITTER ICON */}
-    <div className="logo">
-    <BsTwitter/>
-    </div>
-    <br/>
-
+            <div className="sidebar">
+                <div className="logo">
+                    <BsTwitter/>
+                </div>
+                <br/>
     
-    <SidebarOption Icon={<RiHome7Fill />} active text="Home"/>
-    
-    <SidebarOption Icon={<FaHashtag />} text="Explore"/>
+                <SidebarOption Icon={<RiHome7Fill />} active text="Home"/>
 
-    <SidebarOption Icon={<AiOutlineBell />} text="Notifications"/>
+                <SidebarOption Icon={<FaHashtag />} text="Explore"/>
 
-    <SidebarOption Icon={<AiOutlineMail />} text="Messages"/>
- 
-    <SidebarOption Icon={<BsBookmark />} text="Bookmarks"/>
+                <SidebarOption Icon={<AiOutlineBell />} text="Notifications"/>
 
-    <SidebarOption Icon={<RiFileList2Line />} text="Lists"/>
+                <SidebarOption Icon={<AiOutlineMail />} text="Messages"/>
 
-    <SidebarOption Icon={<AiOutlineUser />} text="Profile"/>
+                <SidebarOption Icon={<BsBookmark />} text="Bookmarks"/>
 
-    <SidebarOption  Icon={<CgMoreO />} text="More"/>
+                <SidebarOption Icon={<RiFileList2Line />} text="Lists"/>
 
-    {/*button tweet */}
-    <div className="buttonfortweet">
-    <button type="button" className="btn btn-primary col-12 rounded-pill fw-bold text-white fs-6" type="submit">Tweet</button>
-    </div>
+                <SidebarOption Icon={<AiOutlineUser />} text="Profile"/>
 
-    <div className="post_avatarsidebar">
-    <span className="post_headerspecialsidebar">
-        <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
-        <h6>HanaaKevin{<p>@hanaakevin</p>}</h6>
-        <div className="verified"><GoVerified/></div>
-        </span>
-        </div>
-</div>
-</Sidbar>
+                <SidebarOption  Icon={<CgMoreO />} text="More"/>
+                
+                <div className="buttonfortweet">
+                    <button   onClick={() => props.setCreateTweetModalVisible(true)}  className="btn btn-primary col-12 rounded-pill fw-bold text-white fs-6" 
+                    >Tweet</button>
+                </div>
+                
+                <div className="post_avatarsidebar">
+                    <span className="post_headerspecialsidebar">
+                        <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
+                        <h6>HanaaKevin{<p>@hanaakevin</p>}</h6>
+                        {/* <h6>{user.firstName}</h6> */}
+                        <div className="verified"><GoVerified/></div>
+                    </span>
+                </div>
+            </div>
+        </Sidbar>
     )
 }
 
