@@ -1,5 +1,5 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { UserContextProvider } from './contexts/User'
 
 import CreateUser from "./pages/CreateUser";

@@ -1,9 +1,9 @@
 import React from 'react';
 import Sidebar from "../components/Sidebar";
 import SidebarOption from "../components/SidebarOption";
-import GlobalProfile from "../components/GlobalProfile";
+import Global from "../Global";
 import Widgets from "../components/Widgets";
-import TweetBoxProfile from "../components/TweetBoxProfile";
+import TweetBox from "../components/TweetBox";
 import Post from "../components/Post";
 import styled from 'styled-components'
 
@@ -18,7 +18,7 @@ const Ap = styled.div`
 }
 `
 
-const Profile = () => {
+const Home = () => {
     return (
         <Ap>
         <div className="app">
@@ -26,7 +26,7 @@ const Profile = () => {
           {/*SIDEBAR*/}
           <Sidebar />
           {/*FEED*/}
-          <GlobalProfile />
+          <Global />
           {/*WIDGETS*/}
           <Widgets />
         </div>
@@ -34,4 +34,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default Home;
