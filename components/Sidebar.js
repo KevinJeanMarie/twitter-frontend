@@ -69,13 +69,11 @@ const Sidbar = styled.div`
         color: rgb(51, 185, 238);
     }
 
-    .buttonfortweet:hover {
+    .post_avatarsidebar:hover {
         background-color: rgb(228, 224, 224);
-        border-radius: 30px;
-        color: rgb(32, 180, 238)
+    border-radius: 30px;
+    color: rgb(32, 180, 238)
     }
-
-
 
 `
 

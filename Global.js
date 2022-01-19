@@ -1,15 +1,15 @@
 import React from 'react';
-import './Feed.css';
+import './Global.css';
 import TweetBox from './components/TweetBox';
 import Post from './components/Post';
 
 
-function Feed() {
+function Global() {
         return (
-            <div className="feed">
+            <div className="global">
                 {/*Header*/}
-                <div className="feed_header">
-                <h2>Home</h2>
+                <div className="global_header">
+                <h2>Home </h2>
                 </div>
                 
                 {/*TweetBox*/}
@@ -23,4 +23,4 @@ function Feed() {
         )
     }
 
-export default Feed;
+export default Global;
