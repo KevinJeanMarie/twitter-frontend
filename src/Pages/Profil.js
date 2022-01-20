@@ -8,6 +8,7 @@ import TweetBox from "../components/TweetBox";
 import Post from "../components/Post";
 import styled from 'styled-components'
 import CreateTweetForm from '../components/Tweet/CreateTweetForm';
+import GlobalProfile from '../components/GlobalProfile';
 
 const Ap = styled.div`
 .app {
@@ -35,7 +36,7 @@ const Profil = () => {
           {/*SIDEBAR*/}
           <Sidebar setCreateTweetModalVisible={setCreateTweetModalVisible} createTweetModalVisible={createTweetModalVisible}/>
           {/*FEED*/}
-          <Global />
+          <GlobalProfile/>
           {/*WIDGETS*/}
           <Widgets />
           

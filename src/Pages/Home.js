@@ -7,7 +7,7 @@ import TweetBox from "../components/TweetBox";
 import Post from "../components/Post";
 import styled from 'styled-components'
 
-const Ap = styled.div`
+const Homee = styled.div`
 .app {
   display: flex;
   height: 100vh;
@@ -20,7 +20,7 @@ const Ap = styled.div`
 
 const Home = () => {
     return (
-        <Ap>
+        <Homee>
         <div className="app">
   
           {/*SIDEBAR*/}
@@ -30,7 +30,7 @@ const Home = () => {
           {/*WIDGETS*/}
           <Widgets />
         </div>
-        </Ap>
+        </Homee>
     );
 };
 

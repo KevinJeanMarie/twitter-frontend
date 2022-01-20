@@ -13,8 +13,9 @@ import { RiFileList2Line } from 'react-icons/ri';
 import { AiOutlineUser } from 'react-icons/ai';
 import { CgMoreO } from 'react-icons/cg';
 import { GoVerified } from 'react-icons/go';
-import { UserContext } from ".././contexts/User"
-import CreateTweetForm from "./Tweet/CreateTweetForm";
+import { UserContext } from ".././contexts/User";
+import CreateTweetModal from '../components/Tweet/CreateTweetModal';
+// import CreateTweetForm from "../components/Tweet/CreateTweetForm;"
 
 const Sidbar = styled.div`
 .sidebar {
@@ -79,7 +80,8 @@ color: rgb(32, 180, 238)
 `
 
 const Sidebar = (props) => {
-    const { user, getUser } = useContext(UserContext)
+    const { tweet, getTweet } = useContext(UserContext)
+    const [createTweetModalVisible, setCreateTweetModalVisible] = useState(false) 
     
     return (
         <Sidbar>
@@ -106,9 +108,18 @@ const Sidebar = (props) => {
                 <SidebarOption  Icon={<CgMoreO />} text="More"/>
                 
                 <div className="buttonfortweet">
-                    <button   onClick={() => props.setCreateTweetModalVisible(true)}  className="btn btn-primary col-12 rounded-pill fw-bold text-white fs-6" 
-                    >Tweet</button>
+                    <button onClick={() => setCreateTweetModalVisible(true)} className="btn btn-primary col-12 rounded-pill fw-bold text-white fs-6">
+                    Tweet</button>
+                    <CreateTweetModal
+        isOpen={createTweetModalVisible}
+        onClose={() => setCreateTweetModalVisible(false)} />
+
+                    
+                {/* <div className='col-6 mt-2'><Button3 onClick={() => setCreateUserModalVisible(true)}>Inscription</Button3></div> */}
                 </div>
+
+                {/* onClick={() => setCreateUserModalVisible(true)} */}
+                
                 
                 <div className="post_avatarsidebar">
                     <span className="post_headerspecialsidebar">

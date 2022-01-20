@@ -1,8 +1,8 @@
 import React from 'react';
 import { useContext } from "react"
 import styled from 'styled-components';
-import { useFormik } from 'formik'
-import { UserContext } from "../contexts/User"
+import { useFormik } from 'formik';
+import { UserContext } from "../contexts/User";
 
 const TweetBoxx = styled.div`
 .tweetBox {
