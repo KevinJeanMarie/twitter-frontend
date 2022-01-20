@@ -31,7 +31,7 @@ const Container = styled.div`
 
 const Profil = () => {
   const [createTweetModalVisible, setCreateTweetModalVisible] = useState(false)
-  const { getUser } = useContext(UserContext)
+  const { user } = useContext(UserContext)
   const { id } = useParams()
 
 
