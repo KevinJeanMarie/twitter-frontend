@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GoVerified } from 'react-icons/go';
-
+import { useContext, useEffect, useState } from 'react'
+import CreateEditModal from './Edit/CreateEditModal'
 
 const TweetBoxxProfile = styled.div`
 
@@ -105,6 +106,7 @@ transition: all 0.4s ease 0s;
 `
 
 function TweetBoxProfile() {
+        const [createEditModalVisible, setCreateEditModalVisible] = useState(false)
     return (
         <TweetBoxxProfile>
         <div className="tweetBoxProfile">
@@ -114,10 +116,10 @@ function TweetBoxProfile() {
                 </div>
         
                 
-                <button type="button" 
-                className="btn col-4 rounded-pill btn-sm" 
-                type="submit">Edit profile
+                <button onClick={() => setCreateEditModalVisible(true)} className="btn col-4 rounded-pill btn-sm"> 
+                Edit profile
                 </button>
+                
             <div className="info">
                 <div className="picturetweetbox">
                 <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
@@ -151,6 +153,10 @@ function TweetBoxProfile() {
             </form>
             
         </div>
+        <CreateEditModal
+        isOpen={createEditModalVisible}
+        onClose={() => setCreateEditModalVisible(false)}
+      />
         </TweetBoxxProfile>
     )
 }
