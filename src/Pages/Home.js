@@ -14,7 +14,7 @@ const Homee = styled.div`
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 10px;
+  padding: 0 9px;
 }
 `
 
