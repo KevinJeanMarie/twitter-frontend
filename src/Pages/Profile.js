@@ -1,13 +1,13 @@
 import React from 'react';
 import Sidebar from "../components/Sidebar";
 import SidebarOption from "../components/SidebarOption";
-import Global from "../Global";
+import GlobalProfile from "../components/GlobalProfile";
 import Widgets from "../components/Widgets";
-import TweetBox from "../components/TweetBox";
+import TweetBoxProfile from "../components/TweetBoxProfile";
 import Post from "../components/Post";
 import styled from 'styled-components'
 
-const Homee = styled.div`
+const Ap = styled.div`
 .app {
   display: flex;
   height: 100vh;
@@ -18,20 +18,20 @@ const Homee = styled.div`
 }
 `
 
-const Home = () => {
+const Profile = () => {
     return (
-        <Homee>
+        <Ap>
         <div className="app">
   
           {/*SIDEBAR*/}
           <Sidebar />
           {/*FEED*/}
-          <Global />
+          <GlobalProfile />
           {/*WIDGETS*/}
           <Widgets />
         </div>
-        </Homee>
+        </Ap>
     );
 };
 
-export default Home;
+export default Profile;

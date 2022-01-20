@@ -10,6 +10,8 @@ import styled from 'styled-components'
 import CreateTweetModal from '../components/Tweet/CreateTweetModal';
 import { UserContext } from "../contexts/User"
 import { useParams} from 'react-router-dom'
+import CreateTweetForm from '../components/Tweet/CreateTweetForm';
+import GlobalProfile from '../components/GlobalProfile';
 
 const Ap = styled.div`
 .app {
@@ -41,7 +43,7 @@ const Profil = () => {
           {/*SIDEBAR*/}
           <Sidebar setCreateTweetModalVisible={setCreateTweetModalVisible} createTweetModalVisible={createTweetModalVisible}/>
           {/*FEED*/}
-          <Global />
+          <GlobalProfile/>
           {/*WIDGETS*/}
           <Widgets />
           
