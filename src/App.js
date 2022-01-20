@@ -4,8 +4,6 @@ import { UserContextProvider } from './contexts/User'
 
 import CreateUser from "./pages/CreateUser";
 import Profil from "./pages/Profil"
-import Profile from "./pages/Profile"
-import CreateTweetForm from "./components/Tweet/CreateTweetForm";
 
 const App = () => {
   return (
@@ -13,7 +11,7 @@ const App = () => {
     <UserContextProvider>
       <Routes>
         <Route exact path="/" element={<CreateUser />} />
-        <Route exact path="/profil" element={<Profil />} /> 
+        <Route exact path="/profil/:id" element={<Profil />} /> 
       </Routes>
     </UserContextProvider>
   </BrowserRouter>

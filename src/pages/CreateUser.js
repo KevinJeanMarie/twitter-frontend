@@ -6,6 +6,7 @@ import { BsTwitter } from 'react-icons/bs';
 import {BsApple} from 'react-icons/bs'
 import {FaGoogle, FcGoogle} from 'react-icons/fa'
 import CreateUserModal from '../components/User/CreateUserModal';
+import CreateLoginModal from '../components/Login/CreateLoginModal';
 
 const Img = styled.img`
 {
@@ -157,6 +158,7 @@ const FooterP = styled.p`
 `
 const CreateUser = () => {
     const [createUserModalVisible, setCreateUserModalVisible] = useState(false)
+    const [createLoginModalVisible, setCreateLoginModalVisible] = useState(false)
 
     return (
         <Container>
@@ -185,7 +187,7 @@ const CreateUser = () => {
                 </Conditions>
 
                 <H3>Vous avez déjà un compte ?</H3>
-                <div className='col-6 '><Button4>Se connecter</Button4></div>
+                <div className='col-6 '><Button4 onClick={() => setCreateLoginModalVisible(true)}>Se connecter</Button4></div>
             </div>
         </div>
         <div className='row'>
@@ -215,7 +217,11 @@ const CreateUser = () => {
         <CreateUserModal
         isOpen={createUserModalVisible}
         onClose={() => setCreateUserModalVisible(false)}
-      />
+        />
+        <CreateLoginModal
+        isOpen={createLoginModalVisible}
+        onClose={() => setCreateLoginModalVisible(false)}
+        />
         </Container>
     );
 };

@@ -7,7 +7,9 @@ import Widgets from "../components/Widgets";
 import TweetBox from "../components/TweetBox";
 import Post from "../components/Post";
 import styled from 'styled-components'
-import CreateTweetForm from '../components/Tweet/CreateTweetForm';
+import CreateTweetModal from '../components/Tweet/CreateTweetModal';
+import { UserContext } from "../contexts/User"
+import { useParams} from 'react-router-dom'
 
 const Ap = styled.div`
 .app {
@@ -27,6 +29,10 @@ const Container = styled.div`
 
 const Profil = () => {
   const [createTweetModalVisible, setCreateTweetModalVisible] = useState(false)
+  const { getUser } = useContext(UserContext)
+  const { id } = useParams()
+
+
     return (
       <Container>
         <Ap>
@@ -41,7 +47,7 @@ const Profil = () => {
           
         </div>
         </Ap>
-        <CreateTweetForm
+        <CreateTweetModal
           isOpen={createTweetModalVisible}
           onClose={() => setCreateTweetModalVisible(false)}
           />

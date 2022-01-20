@@ -1,11 +1,13 @@
 import { createContext, useState } from "react"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const UserContext = createContext({})
 
 const UserContextProvider = ({ children }) => {
   const [ user , setUser] = useState()
   const navigate = useNavigate()
+  const {id } = useParams()
+  
 
     
   const signup = async values => {
@@ -55,20 +57,19 @@ const UserContextProvider = ({ children }) => {
           alert(loginResponse.statusText)
       } else {
         setUser(user)
-          navigate('/profil')
+        navigate(`/profil/${user._id}`)
       }
   }
 
-  const getUser = async (id) => {
-    const response = await fetch(`http://localhost:5000/users/${id}/`, {
-      credentials: "include"
-    })
-    await response.json()
-  }
+  // const getUser = async () => {
+  //   const response = await fetch(`http://localhost:5000/users/${id}/`, {
+  //     credentials: "include"
+  //   })
+  //   await response.json()
+  // }
 
 
   const createTweet =  async values => {
-    const id = user.id
     const response = await fetch(`http://localhost:5000/tweets/${id}`, {
           method: 'post',
           headers: {
@@ -82,15 +83,36 @@ const UserContextProvider = ({ children }) => {
       await response.json()
       console.log(response)
       console.log(user)
-
   }
 
+  const login = async values => {
+    const response = await fetch('http://localhost:5000/auth/login', {
+        method: 'post',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          email: values.email,
+          password: values.password,
+      })
+    })
+    const user = await response.json()
+
+    if (response.status >= 400) {
+      alert(response.statusText)
+  } else {
+    setUser(user)
+      navigate(`/profil/${user._id}`)
+  }
+  }
 
   const value = {
     signup,
     user,
-    getUser,
-    createTweet
+    // getUser,
+    createTweet,
+    login
   }
 
   return (

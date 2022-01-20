@@ -73,7 +73,6 @@ const TweetBox = () => {
                 
                
                 </div>
-                {/* <input className="tweetBox_imageInput" placeholder="Enter image URL" type="text" /> */}
                 <button type="button" 
                 className="btn btn-primary col-2 rounded-pill fw-bold text-white fs-6" 
                 type="submit">Tweet
