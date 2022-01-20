@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContext } from "react"
 import Sidebar from "../components/Sidebar";
 import SidebarOption from "../components/SidebarOption";
 import Global from "../Global";
@@ -6,6 +7,7 @@ import Widgets from "../components/Widgets";
 import TweetBox from "../components/TweetBox";
 import Post from "../components/Post";
 import styled from 'styled-components'
+import { UserContext } from "../contexts/User";
 
 const Homee = styled.div`
 .app {
@@ -14,11 +16,12 @@ const Homee = styled.div`
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 10px;
+  padding: 0 9px;
 }
 `
 
 const Home = () => {
+
     return (
         <Homee>
         <div className="app">

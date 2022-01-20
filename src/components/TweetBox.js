@@ -51,37 +51,38 @@ const TweetBox = () => {
     const formik = useFormik({
         initialValues: {
             contents: "",
-        onSubmit: values => {
-          createTweet(values)
         },
-    }
+        onSubmit: values => {
+            createTweet(values)
+        },
+        contents:"",
     })
+    // console.log(formik.values)
+    // console.log("TweetBox")
 
     return (
         <TweetBoxx>
         <div className="tweetBox">
-            <form>
+            <form onSubmit={formik.handleSubmit}>
                 <div className="tweetBox_input">
-                <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
-                <input 
-                placeholder="What's happening?" 
-                type="text" 
-                name="contents"
-                value={formik.values.contents}
-                onChange={formik.handleChange}
-                />
-                
-               
+                    <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
+                    <input 
+                        placeholder="What's happening?" 
+                        type="text" 
+                        name="contents"
+                        value={formik.values.contents}
+                        onChange={formik.handleChange}
+                    />
                 </div>
-                {/* <input className="tweetBox_imageInput" placeholder="Enter image URL" type="text" /> */}
-                <button type="button" 
-                className="btn btn-primary col-2 rounded-pill fw-bold text-white fs-6" 
-                type="submit">Tweet
+
+                <button 
+                    className="btn btn-primary col-2 rounded-pill fw-bold text-white fs-6" 
+                    type="submit"
+                >Tweet
                 </button>
             </form>
-            
         </div>
-        </TweetBoxx>
+    </TweetBoxx>
     )
 }
 

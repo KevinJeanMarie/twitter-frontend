@@ -1,7 +1,6 @@
 import React from "react";
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import SidebarOption from "./SidebarOption";
-// import { createSidebarStyle } from 'styled-components';
 import styled from 'styled-components';
 import { BsTwitter } from 'react-icons/bs';
 import { RiHome7Fill } from 'react-icons/ri';
@@ -15,7 +14,7 @@ import { CgMoreO } from 'react-icons/cg';
 import { GoVerified } from 'react-icons/go';
 import { UserContext } from ".././contexts/User";
 import CreateTweetModal from '../components/Tweet/CreateTweetModal';
-// import CreateTweetForm from "../components/Tweet/CreateTweetForm;"
+
 
 const Sidbar = styled.div`
 .sidebar {
@@ -80,8 +79,13 @@ color: rgb(32, 180, 238)
 `
 
 const Sidebar = (props) => {
-    const { tweet, getTweet } = useContext(UserContext)
+    const { user, getUser } = useContext(UserContext)
     const [createTweetModalVisible, setCreateTweetModalVisible] = useState(false) 
+
+    useEffect(()=> {
+        getUser()
+    },[])
+
     
     return (
         <Sidbar>
@@ -125,7 +129,7 @@ const Sidebar = (props) => {
                     <span className="post_headerspecialsidebar">
                         <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
                         <h6>HanaaKevin{<p>@hanaakevin</p>}</h6>
-                        {/* <h6>{user.firstName}</h6> */}
+                        <h6>{user.firstName}</h6>
                         <div className="verified"><GoVerified/></div>
                     </span>
                 </div>
