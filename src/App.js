@@ -17,7 +17,7 @@ const App = () => {
       <Routes>
         <Route exact path='/' element={<CreateUser />} />
         <Route exact path='/profil' element={<Profil />} />
-        <Route exact path='/home/:id' element={<Home />} />
+        <Route exact path='/home' element={<Home />} />
         <Route exact path='*' element={<NotFound/>}/>  
       </Routes>
     </UserContextProvider>

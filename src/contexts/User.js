@@ -5,6 +5,7 @@ const UserContext = createContext({})
 
 const UserContextProvider = ({ children }) => {
   const [ user , setUser] = useState(null)
+  const [ tweets , setTweets] = useState(null)
   const navigate = useNavigate()
   const {id } = useParams()
   
@@ -47,17 +48,20 @@ const UserContextProvider = ({ children }) => {
           alert(loginResponse.statusText)
       } else {
         // setUser(user)
-        navigate(`/home/${user.firstName}`)
+        navigate('/profil')
       }
   }
 
   const getUser = async () => {
-    const response = await fetch(`http://localhost:5000/users/${id}/`, {
+    const response = await fetch(`http://localhost:5000/users`, {
       credentials: "include"
     })
     const user = await response.json()
 
-   
+    if (user.error) {
+      navigate('/')
+      return
+    }
     setUser(user)
   }
 
@@ -94,9 +98,22 @@ const UserContextProvider = ({ children }) => {
     if (response.status >= 400) {
       alert(response.statusText)
   } else {
-    setUser(user)
-      navigate(`/home/${user.firstName}`)
+  
+      navigate('/profil')
   }
+  }
+
+  const getTweetsUser = async () =>{
+    const response = await fetch(`http://localhost:5000/tweets`, {
+      credentials: "include"
+    })
+    const tweet = await response.json()
+
+    if (tweet.error) {
+      navigate('/')
+      return
+    }
+    setTweets(tweet)
   }
 
   const value = {
@@ -104,7 +121,9 @@ const UserContextProvider = ({ children }) => {
     user,
     getUser,
     createTweet,
-    login
+    login,
+    getTweetsUser,
+    tweets
   }
 
   return (

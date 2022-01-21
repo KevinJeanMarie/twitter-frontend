@@ -81,10 +81,15 @@ color: rgb(32, 180, 238)
 const Sidebar = (props) => {
     const { user, getUser } = useContext(UserContext)
     const [createTweetModalVisible, setCreateTweetModalVisible] = useState(false) 
+   
 
     useEffect(()=> {
         getUser()
     },[])
+
+    if (!user) {
+    return <p>Loading...</p>
+  }
 
     
     return (
@@ -128,8 +133,8 @@ const Sidebar = (props) => {
                 <div className="post_avatarsidebar">
                     <span className="post_headerspecialsidebar">
                         <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
-                        <h6>HanaaKevin{<p>@hanaakevin</p>}</h6>
-                        <h6>{user.firstName}</h6>
+                        <h6>{user.firstName}{<p>@{user.firstName}{user.lastName}</p>}</h6>
+                        {/* <h6>{user.firstName}</h6> */}
                         <div className="verified"><GoVerified/></div>
                     </span>
                 </div>

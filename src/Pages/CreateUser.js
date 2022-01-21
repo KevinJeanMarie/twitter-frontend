@@ -51,7 +51,7 @@ const Button = styled.button`
     font-weight: bold;
     font-size: 0.7em;
     font-size: 14px;
-    padding: 0.6em 4.9em;
+    padding: 0.6em 4.2em;
     cursor: pointer;
     margin-top: 20px
 }
@@ -66,7 +66,7 @@ const Button2 = styled.button`
     font-weight: bold;
     font-size: 0.7em;
     font-size: 14px;
-    padding: 0.6em 5.2em;
+    padding: 0.6em 4.5em;
     cursor: pointer;
     margin-top: 10px
 }
@@ -88,17 +88,21 @@ const Button3 = styled.button`
 `
 
 const Ligne = styled.div`
-.ligne:before, 
-.ligne:after { 
-content: ""; 
-flex: 1 1; 
-border-bottom: 2px solid #000; 
-margin: auto;}
-{
-    display: flex; 
-    flex-direction: row; 
-    margin-top: 15px
-}
+
+
+// .lignee{
+//     display: flex; 
+//     flex-direction: row; 
+//     margin-top: 5px
+// }
+// .lignee:before, 
+
+// .lignee:after { 
+// content: ""; 
+// flex: 1 1; 
+// border-bottom: 1px solid #000; 
+// margin: auto;
+// }
 
 `
 const Conditions = styled.p`
@@ -115,6 +119,7 @@ const P = styled.p`
 const A = styled.a`
 {
     text-decoration: none;
+    color: gray;
 }
 `
 const H3 = styled.h3`
@@ -153,7 +158,7 @@ const Footer2 = styled.div`
 const FooterP = styled.p`
 {
     font-size: 12px;
-    margin-left: 25px
+    margin-left: 25px;
 }
 `
 const CreateUser = () => {
@@ -176,8 +181,9 @@ const CreateUser = () => {
                     <div className='col-6 '><Button><FaGoogle size="20px" />&emsp; S'inscrire avec Google</Button></div>
                     <div className='col-6 '><Button2><BsApple size="20px" />&emsp; S'inscrire avec Apple</Button2></div>
                 </div>
-              
-                <Ligne>ou</Ligne>
+
+                <div className='ligne'><Ligne><div className='lignee'>ou</div></Ligne></div>
+                
 
                 <div className='col-6 mt-2'><Button3 onClick={() => setCreateUserModalVisible(true)}>Inscription</Button3></div>
                 <Conditions>

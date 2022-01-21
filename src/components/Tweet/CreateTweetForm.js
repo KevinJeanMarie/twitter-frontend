@@ -3,6 +3,7 @@ import { useContext } from "react"
 import styled from 'styled-components'
 import * as Yup from 'yup'
 import { useNavigate } from 'react-router-dom'
+import { useFormik } from 'formik';
 
 
 import { UserContext } from "../../contexts/User"
@@ -45,15 +46,35 @@ button {
 // `
 
 const CreateTweetForm = () => {
-    const { signup } = useContext(UserContext)
+    const { createTweet } = useContext(UserContext)
     const navigate = useNavigate()
+
+    const formik = useFormik({
+        initialValues: {
+            contents: "",
+        },
+        onSubmit: values => {
+            createTweet(values)
+        },
+        contents:"",
+    })
 
     return (
         <TweetModal>
+    <form onSubmit={formik.handleSubmit}>
         <div className="ModalTweet">
-            <input type="text" placeholder="What's happening?"/>
-            <button type="submit">Tweet</button>
+            <input 
+            type="text" 
+            placeholder="What's happening?"
+            name="contents"
+            value={formik.values.contents}
+            onChange={formik.handleChange}
+            />
+            <button type="submit">Tweet
+           
+            </button>
             </div>
+    </form> 
         </TweetModal>
             
     );
