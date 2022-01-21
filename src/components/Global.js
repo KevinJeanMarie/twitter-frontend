@@ -1,7 +1,7 @@
 import React from 'react';
-import './Global.css';
-import TweetBox from './components/TweetBox';
-import Post from './components/Post';
+import '../Global.css';
+import TweetBox from './TweetBox';
+import Post from './Post';
 
 
 function Global() {
@@ -15,10 +15,9 @@ function Global() {
                 {/*TweetBox*/}
                 <TweetBox />
                 {/*Post*/}
-                <Post />
-                <Post />
-                <Post />
-                <Post />
+                {/* <Post /> */}
+               
+            
             </div>
         )
     }
