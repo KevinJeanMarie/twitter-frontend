@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { UserContext } from ".././contexts/User";
+import { useContext, useEffect, useState } from 'react'
 
 const Poss = styled.div`
 .post {
@@ -53,8 +55,10 @@ height: 55px;
 
 
 
-function Post({ 
-}) {
+const  Post = () => {
+    const { user } = useContext(UserContext)
+
+    
     return (
         <Poss>
     <div className="post">
