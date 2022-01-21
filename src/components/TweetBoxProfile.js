@@ -1,14 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GoVerified } from 'react-icons/go';
-<<<<<<< HEAD
-import { UserContext } from ".././contexts/User";
-import { useContext, useState, useEffect } from 'react'
-
-=======
 import { useContext, useEffect, useState } from 'react'
 import CreateEditModal from './Edit/CreateEditModal'
->>>>>>> 0ad8abbb8f664b46fbe153698ec9fc9730008678
+import { UserContext } from ".././contexts/User";
 
 const TweetBoxxProfile = styled.div`
 
@@ -112,8 +107,8 @@ transition: all 0.4s ease 0s;
 `
 
 function TweetBoxProfile() {
-<<<<<<< HEAD
     const { user, getUser } = useContext(UserContext)
+    const [createEditModalVisible, setCreateEditModalVisible]= useState(false)
     useEffect(()=> {
         getUser()
     },[])
@@ -121,9 +116,6 @@ function TweetBoxProfile() {
     if (!user) {
         return <p>Loading...</p>
       }
-=======
-        const [createEditModalVisible, setCreateEditModalVisible] = useState(false)
->>>>>>> 0ad8abbb8f664b46fbe153698ec9fc9730008678
     return (
         <TweetBoxxProfile>
         <div className="tweetBoxProfile">
