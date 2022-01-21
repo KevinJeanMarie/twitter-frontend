@@ -46,7 +46,7 @@ const CreateEditModal = ({ isOpen, onClose }) => {
     </Logos>
     
     
-      <h2 className='mt-3'>Créer un compte.</h2>
+      <h2 className='mt-3'>Créer un compte</h2>
      
       <CreateEditForm
         onClose={onClose}
