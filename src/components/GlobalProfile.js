@@ -28,9 +28,9 @@ function GlobalProfile() {
                 <TweetBoxxProfile />
                 {/*Post*/}
                 <Post />
+                {/* <Post />
                 <Post />
-                <Post />
-                <Post />
+                <Post /> */}
             </div>
         )
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext, useEffect, useState } from 'react'
 import Sidebar from "../components/Sidebar";
 import SidebarOption from "../components/SidebarOption";
-import Global from "../Global";
+import Global from "../components/Global";
 import Widgets from "../components/Widgets";
 import TweetBox from "../components/TweetBox";
 import Post from "../components/Post";

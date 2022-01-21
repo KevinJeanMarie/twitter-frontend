@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GoVerified } from 'react-icons/go';
+import { UserContext } from ".././contexts/User";
+import { useContext, useState, useEffect } from 'react'
 
 
 const TweetBoxxProfile = styled.div`
@@ -105,6 +107,14 @@ transition: all 0.4s ease 0s;
 `
 
 function TweetBoxProfile() {
+    const { user, getUser } = useContext(UserContext)
+    useEffect(()=> {
+        getUser()
+    },[])
+
+    if (!user) {
+        return <p>Loading...</p>
+      }
     return (
         <TweetBoxxProfile>
         <div className="tweetBoxProfile">
@@ -121,8 +131,8 @@ function TweetBoxProfile() {
             <div className="info">
                 <div className="picturetweetbox">
                 <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
-                <h4>HanaaKevin&thinsp;{<h5><GoVerified/></h5>}</h4>
-                <h6>@hanaakevin</h6>
+                <h4>&thinsp;{<h5><GoVerified/></h5>}</h4>
+                <h6>@{user.firstName}{user.lastName}</h6>
                 </div>
 
             <div className="greytext">      

@@ -56,40 +56,58 @@ height: 55px;
 
 
 const  Post = () => {
-    const { user } = useContext(UserContext)
+    const { user, getTweetsUser, tweets, getUser  } = useContext(UserContext)
+    useEffect(()=> {
+        getUser()
+    },[])
+    // useEffect(()=> {
+    //     getTweetsUser()
+    // },[])
 
+    if (!user) {
+        return <p>Loading...</p>
+      }
+
+    // if (!tweets) {
+    //     return <p>Loading...</p>
+    //   }
+   
+ 
     
     return (
+        <>
         <Poss>
-    <div className="post">
-        <div className="post_avatar">
-        <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
+        {/* {tweets.map(e =>  */}
+        <div className="post">
+            <div className="post_avatar">
+                <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
+            </div>
+            <div className="post_body">
+                <div className="post_header">
+                    <div className="post_headerText">
+                        <h3>  {user.firstName}
+                        <span className="post_headerspecial">
+                            <i className="bi bi-patch-check-fill text-info"></i> @{user.firstName}{user.lastName}
+                        </span>
+                        </h3>
+                    </div>
+
+                    <div className="post_headerDescription">
+                    {/* <p>{e.contents}</p> */}
+                    </div>     
+                </div>
+            
+                <div className="post_footer">
+                    <i class="bi bi-chat"></i>
+                    <i class="bi bi-arrow-repeat"></i>
+                    <i class="bi bi-heart"></i>
+                    <i class="bi bi-arrow-bar-up"></i>
+                </div>
+            </div>
         </div>
-        <div className="post_body">
-        <div className="post_header">
-        <div className="post_headerText">
-        <h3> HanaaKevin {""}
-         <span className="post_headerspecial">
-         <i className="bi bi-patch-check-fill text-info"></i> @hanaakevin
-        </span>
-        </h3>
-        </div>
-        <div className="post_headerDescription">
-        <p>Hanaa et Kévin reproduisent un Twitter Clone.</p>
-        </div>     
-        </div>
-        <div className="avatar">
-        <img src="https://www.africatopsports.com/wp-content/uploads/2021/05/Chelsea-Real-Madrid.jpg"
-        alt=""/>
-        </div>
-        <div className="post_footer">
-        <i class="bi bi-chat"></i>
-        <i class="bi bi-arrow-repeat"></i>
-        <i class="bi bi-heart"></i>
-        <i class="bi bi-arrow-bar-up"></i>
-            </div></div>
-        </div>
+         {/* )}   */}
         </Poss>
+    </>
     );
 }
 
