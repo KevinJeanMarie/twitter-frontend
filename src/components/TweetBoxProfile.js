@@ -42,7 +42,7 @@ border: 3px solid rgb(212, 210, 210);
 
 .tweetBoxProfile button {
     margin-top: 10px;
-    margin-left: auto;
+    margin-left: 400px;
     border-color: gray;
     width: 85px;
     font-weight: bold;
@@ -106,9 +106,10 @@ transition: all 0.4s ease 0s;
 
 `
 
-function TweetBoxProfile() {
+const TweetBoxProfile = () => {
     const { user, getUser } = useContext(UserContext)
     const [createEditModalVisible, setCreateEditModalVisible]= useState(false)
+
     useEffect(()=> {
         getUser()
     },[])
@@ -119,7 +120,7 @@ function TweetBoxProfile() {
     return (
         <TweetBoxxProfile>
         <div className="tweetBoxProfile">
-            <form>
+            {/* <form> */}
                 <div className="row">
                 <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/lpguideshopping/KROIGO2GVMT5RI7S7PW5JEWMZU.jpg"/>
                 </div>
@@ -132,7 +133,7 @@ function TweetBoxProfile() {
             <div className="info">
                 <div className="picturetweetbox">
                 <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
-                <h4>&thinsp;{<h5><GoVerified/></h5>}</h4>
+                <h4>{user.firstName}&thinsp;{user.lastName}&thinsp;{<h5><GoVerified/></h5>}</h4>
                 <h6>@{user.firstName}{user.lastName}</h6>
                 </div>
 
@@ -142,7 +143,7 @@ function TweetBoxProfile() {
                 </div>
 
                 <div className="accountdate">
-                    <p>Joined ??/??/????</p>
+                    <p> Joined {user.createdAt}</p>
                 </div>
 
                 <div className="followingfollower">
@@ -159,7 +160,7 @@ function TweetBoxProfile() {
                 </div>
             
 
-            </form>
+            {/* </form> */}
             
         </div>
         <CreateEditModal

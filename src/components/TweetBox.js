@@ -10,6 +10,7 @@ const TweetBoxx = styled.div`
     border-bottom: 2px solid rgb(233, 232, 232);
     padding-right: 10px;
     margin-top: -10px;
+    margin-right: 0px;
 }
 
 .tweetBox form {
@@ -41,7 +42,8 @@ padding: 10px;
 }
 
 .tweetBox button {
-    margin-left: auto;
+    margin-left: 390px;
+    width: 90px;
 }
 `
 

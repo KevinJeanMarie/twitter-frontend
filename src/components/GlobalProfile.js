@@ -3,6 +3,8 @@ import React from 'react';
 import TweetBoxxProfile from './TweetBoxProfile';
 import Post from './Post';
 import styled from 'styled-components';
+import { useContext, useEffect, useState } from 'react'
+import { UserContext } from ".././contexts/User";
 
 const GlobalProfileee = styled.div`
 .globalprofile_header {
@@ -14,13 +16,21 @@ const GlobalProfileee = styled.div`
 
 
 function GlobalProfile() {
+    const { user, getUser } = useContext(UserContext)
+    useEffect(()=> {
+        getUser()
+    },[])
+
+    if (!user) {
+        return <p>Loading...</p>
+      }
         return (
             
             <div className="globalprofile">
                 {/*Header*/}
                 <GlobalProfileee>
                 <div className="globalprofile_header">
-                <h6>HanaaKevin</h6>
+                <h6>{user.firstName}{user.lastName}</h6>
                 </div>
                 </GlobalProfileee>
                 

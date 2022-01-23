@@ -14,13 +14,19 @@ import { CgMoreO } from 'react-icons/cg';
 import { GoVerified } from 'react-icons/go';
 import { UserContext } from ".././contexts/User";
 import CreateTweetModal from '../components/Tweet/CreateTweetModal';
+import { Link } from 'react-router-dom';
 
+const LinkBar = styled.div`
+a:link {
+    text-decoration: none;
+}
+`
 
 const Sidbar = styled.div`
 .sidebar {
     border-right: 1px solid rgb(233, 232, 232);
     padding-right: 10px;
-    margin-left: 40px;
+    margin-left: 100px;
     
 }
 
@@ -76,9 +82,10 @@ background-color: rgb(228, 224, 224);
 border-radius: 30px;
 color: rgb(32, 180, 238)
 }
+
 `
 
-const Sidebar = (props) => {
+const Sidebar = () => {
     const { user, getUser } = useContext(UserContext)
     const [createTweetModalVisible, setCreateTweetModalVisible] = useState(false) 
    
@@ -99,23 +106,23 @@ const Sidebar = (props) => {
                     <BsTwitter/>
                 </div>
                 <br/>
-    
-                <SidebarOption Icon={<RiHome7Fill />} active text="Home"/>
+    <LinkBar>
+                <Link to="/home"><SidebarOption Icon={<RiHome7Fill />} active text="Home"/></Link>
 
-                <SidebarOption Icon={<FaHashtag />} text="Explore"/>
+                <a><SidebarOption Icon={<FaHashtag />} text="Explore"/></a>
 
-                <SidebarOption Icon={<AiOutlineBell />} text="Notifications"/>
+                <a><SidebarOption Icon={<AiOutlineBell />} text="Notifications"/></a>
 
-                <SidebarOption Icon={<AiOutlineMail />} text="Messages"/>
+                <a><SidebarOption Icon={<AiOutlineMail />} text="Messages"/></a>
 
-                <SidebarOption Icon={<BsBookmark />} text="Bookmarks"/>
+                <a><SidebarOption Icon={<BsBookmark />} text="Bookmarks"/></a>
 
-                <SidebarOption Icon={<RiFileList2Line />} text="Lists"/>
+                <a><SidebarOption Icon={<RiFileList2Line />} text="Lists"/></a>
 
-                <SidebarOption Icon={<AiOutlineUser />} text="Profile"/>
+                <Link to="/profil"><SidebarOption Icon={<AiOutlineUser />} text="Profile"/></Link>
 
-                <SidebarOption  Icon={<CgMoreO />} text="More"/>
-                
+                <a><SidebarOption  Icon={<CgMoreO />} text="More"/></a>
+    </LinkBar>
                 <div className="buttonfortweet">
                     <button onClick={() => setCreateTweetModalVisible(true)} className="btn btn-primary col-12 rounded-pill fw-bold text-white fs-6">
                     Tweet</button>
