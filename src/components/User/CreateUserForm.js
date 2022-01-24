@@ -32,30 +32,24 @@ const CreateUserForm = () => {
             lastName:"",
             password: "",
             email: "",
-            // sexe: "",
             bio: "",
             birthday: "",
-            // language: "",
-            // country:"",
-            // tel: ""
         },
         onSubmit: values => {
           signup(values)
         },
-        // validateOnChange: false,
-        // validationSchema: Yup.object({
-        //   firstName: Yup.string()
-        //     .required("le prénom est requis")
-        //     .min(1, "Password is too short"),
-        //   password: Yup.string()
-        //     .required("Password is required")
-        //     .min(4, "Password is too short"),
-        //   email: Yup.string()
-        //     .required("Email is required")
-        //     .email("Email invalid"),
-        //   sexe: Yup.string()
-        //     .required("Age is required")
-        // })
+        validateOnChange: false,
+        validationSchema: Yup.object({
+          firstName: Yup.string()
+            .required("le prénom est requis")
+            .min(1, "Password is too short"),
+          password: Yup.string()
+            .required("Password is required")
+            .min(4, "Password is too short"),
+          email: Yup.string()
+            .required("Email is required")
+            .email("Email invalid"),
+        })
     })
 
 

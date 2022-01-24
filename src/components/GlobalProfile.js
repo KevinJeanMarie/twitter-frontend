@@ -1,5 +1,4 @@
 import React from 'react';
-// import './GlobalProfile.css';
 import TweetBoxxProfile from './TweetBoxProfile';
 import Post from './Post';
 import styled from 'styled-components';
@@ -13,7 +12,7 @@ const GlobalProfileee = styled.div`
 }`
 
 
-function GlobalProfile() {
+const GlobalProfile = () => {
         return (
             
             <div className="globalprofile">

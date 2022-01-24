@@ -107,13 +107,34 @@ const UserContextProvider = ({ children }) => {
       credentials: "include"
     })
     const tweet = await response.json()
-
-    if (tweet.error) {
-      navigate('/')
-      return
-    }
     setTweets(tweet)
   }
+
+  const editUser = async (values) =>{
+    const response = await fetch(`http://localhost:5000/users`, {
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        firstName: values.firstName,
+        lastName: values.lastName,
+        bio: values.bio,
+      })
+    })
+    const user = await response.json()
+  }
+
+  // const handleLogout = () => {
+  //   fetch('http://localhost:5000/auth/logout', {
+  //     method: 'delete',
+  //     credentials: 'include'
+  //   })
+  //     .then(response => {
+  //       navigate('/')
+  //     })
+  // }
 
   const value = {
     signup,
@@ -122,7 +143,9 @@ const UserContextProvider = ({ children }) => {
     createTweet,
     login,
     getTweetsUser,
-    tweets
+    tweets,
+    editUser,
+    // handleLogout
   }
 
   return (

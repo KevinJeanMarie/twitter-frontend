@@ -78,7 +78,7 @@ const Sidbar = styled.div`
 `
 
 const Sidebar = (props) => {
-    const { user, getUser } = useContext(UserContext)
+    const { user, getUser, handleLogout } = useContext(UserContext)
     const [createTweetModalVisible, setCreateTweetModalVisible] = useState(false) 
    
     useEffect(()=> {
@@ -122,6 +122,7 @@ const Sidebar = (props) => {
                         onClose={() => setCreateTweetModalVisible(false)} 
                     />
                 </div>
+                
 
                 <div className="post_avatarsidebar">
                     <span className="post_headerspecialsidebar">
@@ -130,8 +131,9 @@ const Sidebar = (props) => {
                         {/* <h6>{user.firstName}</h6> */}
                         <div className="verified"><GoVerified/></div>
                     </span>
-                </div>
-            </div>
+                </div>  
+                {/* <a href="" className="ps-4 text-decoration-none text-dark" onClick={handleLogout}>Se déconnecter</a> */}
+            </div> 
         </Sidbar>
     )
 }
