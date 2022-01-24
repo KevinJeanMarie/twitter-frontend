@@ -15,22 +15,22 @@ const modalStyle = {
     width: '40%',
     height: '600px',
     borderRadius: '20px'
-    }
+  }
 }
 
 const Logos = styled.div`
 {
-    display : flex
+  display : flex
 }
 `
 const Logo = styled.div`
 {
-    cursor: pointer
+  cursor: pointer
 }
 `
 const LogoTwitter = styled.div`
 {
-    margin : auto;
+  margin : auto;
 }
 `
 
@@ -40,17 +40,18 @@ const CreateEditModal = ({ isOpen, onClose }) => {
       isOpen={isOpen}
       style={modalStyle}
     > 
+
     <Logos >
-        <Logo><GrClose onClick={onClose} /></Logo>
-        <LogoTwitter><BsTwitter size="35px"/></LogoTwitter>
+      <Logo><GrClose onClick={onClose} /></Logo>
+      <LogoTwitter><BsTwitter size="35px"/></LogoTwitter>
     </Logos>
     
-    
-      <h2 className='mt-3'>Créer un compte</h2>
+    <h2 className='mt-3'>Créer un compte</h2>
      
-      <CreateEditForm
-        onClose={onClose}
-      />
+    <CreateEditForm
+      onClose={onClose}
+    />
+    
     </Modal>
   )
 }

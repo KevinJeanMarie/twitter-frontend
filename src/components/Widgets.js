@@ -37,34 +37,35 @@ const Widg = styled.div`
 }
 `
 
-function Widgets() {
+const Widgets = () => {
     return (
         <Widg>
-        <div className="widgets">
-         <div className="widgets_input">
-         <i class="bi bi-search"></i>
-         <input placeholder="Search Twitter" type="text" />
-         </div>
+            <div className="widgets">
+                <div className="widgets_input">
+                    <i class="bi bi-search"></i>
+                    <input placeholder="Search Twitter" type="text" />
+                </div>
 
-         <div className="widgets_widgetContainer">
-             <h2>Trends for you</h2>
+                <div className="widgets_widgetContainer">
+                    <h2>Trends for you</h2>
 
-            {/*PACKAGE TWITTER WIDGETS*/}
-             < Tweet  tweetId = "1483143154744315908"/>
-             < Timeline 
-                dataSource = { { 
-                sourceType : 'profile' , 
-                screenName : 'realmadrid' 
-                 } } 
-                 options = { { 
-                 height : '400' 
-                 } } />
+                    {/*PACKAGE TWITTER WIDGETS*/}
+                    < Tweet  tweetId = "1483143154744315908"/>
+                    < Timeline 
+                        dataSource = { { 
+                        sourceType : 'profile' , 
+                        screenName : 'realmadrid' 
+                        } } 
+                        options = { { 
+                        height : '400' 
+                        } }
+                    />
 
-             <Share url="https://www.lequipe.fr/Football/ligue-des-champions/page-calendrier-resultats"
-                    options={{ text: "Comme Hanaa & Kévin suivez la ligue des champions"}} />
-
-         </div>
-        </div>
+                    <Share url="https://www.lequipe.fr/Football/ligue-des-champions/page-calendrier-resultats"
+                        options={{ text: "Comme Hanaa & Kévin suivez la ligue des champions"}} 
+                    />
+                </div>
+            </div>
         </Widg>
     )
 }

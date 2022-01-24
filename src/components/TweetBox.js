@@ -24,8 +24,8 @@ const TweetBoxx = styled.div`
 
 .tweetBox_input img {
     border-radius: 50px;
-width: 55px;
-height: 55px;
+    width: 55px;
+    height: 55px;
 }
 
 .tweetBox_input input {
@@ -36,8 +36,8 @@ height: 55px;
 }
 
 .tweetBox_imageInput {
-border: none;
-padding: 10px;
+    border: none;
+    padding: 10px;
 }
 
 .tweetBox button {
@@ -57,8 +57,6 @@ const TweetBox = () => {
         },
         contents:"",
     })
-    // console.log(formik.values)
-    // console.log("TweetBox")
 
     return (
         <TweetBoxx>

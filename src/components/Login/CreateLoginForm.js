@@ -6,18 +6,44 @@ import * as Yup from 'yup'
 
 import { UserContext } from "../../contexts/User"
 
-const Button = styled.button`
+const CenterButton = styled.div`
+{
+    margin : auto;
+}
+`
+const Auto = styled.div`
+{
+    margin : auto;
+}
+`
+
+const Button2 = styled.button`
 {
     background-color: white;
-    border: 2px solid  rgb(29, 155, 240);
+    border: 2px solid black;
     border-radius: 50px;
-    color: rgb(29, 155, 240);
+    color: black;
     font-weight: bold;
     font-size: 0.7em;
-    font-size: 14px;
-    padding: 0.6em 17.8em;
+    font-size: 11px;
+    padding: 0.9em 6.6em;
     cursor: pointer;
-    margin-top: 10px
+    margin-top: 15px
+}
+`
+
+const Button = styled.button`
+{
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.7em;
+    font-size: 11px;
+    padding: 0.9em 9.6em;
+    cursor: pointer;
+    margin-top: 20px;
 }
 `
 
@@ -32,53 +58,52 @@ const CreateLoginForm = () => {
         onSubmit: values => {
           login(values)
         },
-        // validateOnChange: false,
-        // validationSchema: Yup.object({
-        //   firstName: Yup.string()
-        //     .required("le prénom est requis")
-        //     .min(1, "Password is too short"),
-        //   password: Yup.string()
-        //     .required("Password is required")
-        //     .min(4, "Password is too short"),
-        //   email: Yup.string()
-        //     .required("Email is required")
-        //     .email("Email invalid"),
-        //   sexe: Yup.string()
-        //     .required("Age is required")
-        // })
+        validateOnChange: false,
+        validationSchema: Yup.object({
+          password: Yup.string()
+            .required("Password is required")
+            .min(4, "Password is too short"),
+          email: Yup.string()
+            .required("Email is required")
+            .email("Email invalid"),
+        })
     })
 
 
     return (
         <div>
             <form className='mt-3' onSubmit={formik.handleSubmit}> 
-
-                <div className="mb-3">
-                    <input 
-                    type="email" 
-                    className="form-control"  
-                    placeholder='Email'
-                    name="email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange} 
-                    />
+                <div className='row'>
+                    <Auto className="mb-3 col-6">
+                        <input 
+                        type="email" 
+                        className="form-control"  
+                        placeholder='Email'
+                        name="email"
+                        value={formik.values.email}
+                        onChange={formik.handleChange} 
+                        />
+                    </Auto>
                 </div>
 
-                <div className="mb-3">
-                    <input 
-                    type="password" 
-                    className="form-control"  
-                    placeholder='Mot de passe'
-                    name="password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}
-                    />
+                <div className='row'>
+                    <Auto className="mb-3 col-6">
+                        <input 
+                        type="password" 
+                        className="form-control"  
+                        placeholder='Mot de passe'
+                        name="password"
+                        value={formik.values.password}
+                        onChange={formik.handleChange}
+                        />
+                    </Auto>
                 </div>
 
-                <Button type="submit">Suivant</Button>
+                <div className='d-flex flex-column row'>
+                    <CenterButton className='col-6 '><Button type="sublit">Suivant</Button></CenterButton>
+                    <CenterButton className='col-6 '><Button2>Mot de passe oublié</Button2></CenterButton>
+                </div>
             </form>
-
-            
         </div>
     );
 };

@@ -14,6 +14,7 @@ import { CgMoreO } from 'react-icons/cg';
 import { GoVerified } from 'react-icons/go';
 import { UserContext } from ".././contexts/User";
 import CreateTweetModal from '../components/Tweet/CreateTweetModal';
+import { Link} from "react-router-dom"
 
 
 const Sidbar = styled.div`
@@ -21,7 +22,6 @@ const Sidbar = styled.div`
     border-right: 1px solid rgb(233, 232, 232);
     padding-right: 10px;
     margin-left: 40px;
-    
 }
 
 .buttonfortweet {
@@ -37,14 +37,13 @@ const Sidbar = styled.div`
 .post_avatarsidebar {
     margin-top: 35px;
     display: flex;
-    
-    }
+}
 
 .post_avatarsidebar img {
     border-radius: 50px;
     width: 40px;
     height: 40px;
-    }
+}
 
 .post_headerspecialsidebar {
     font-weight: 400;
@@ -72,9 +71,9 @@ const Sidbar = styled.div`
 }
 
 .post_avatarsidebar:hover {
-background-color: rgb(228, 224, 224);
-border-radius: 30px;
-color: rgb(32, 180, 238)
+    background-color: rgb(228, 224, 224);
+    border-radius: 30px;
+    color: rgb(32, 180, 238)
 }
 `
 
@@ -82,16 +81,14 @@ const Sidebar = (props) => {
     const { user, getUser } = useContext(UserContext)
     const [createTweetModalVisible, setCreateTweetModalVisible] = useState(false) 
    
-
     useEffect(()=> {
         getUser()
     },[])
 
     if (!user) {
     return <p>Loading...</p>
-  }
+    }
 
-    
     return (
         <Sidbar>
             <div className="sidebar">
@@ -100,7 +97,7 @@ const Sidebar = (props) => {
                 </div>
                 <br/>
     
-                <SidebarOption Icon={<RiHome7Fill />} active text="Home"/>
+                <Link to={'/home'} style={{"text-decoration": "none", "color":"black"}} ><SidebarOption Icon={<RiHome7Fill />} active text="Home"/></Link>
 
                 <SidebarOption Icon={<FaHashtag />} text="Explore"/>
 
@@ -112,24 +109,20 @@ const Sidebar = (props) => {
 
                 <SidebarOption Icon={<RiFileList2Line />} text="Lists"/>
 
-                <SidebarOption Icon={<AiOutlineUser />} text="Profile"/>
+                <Link to={'/profil'} style={{"text-decoration": "none", "color":"black"}} ><SidebarOption  Icon={ <AiOutlineUser />} text="Profile" /></Link>
 
                 <SidebarOption  Icon={<CgMoreO />} text="More"/>
                 
                 <div className="buttonfortweet">
                     <button onClick={() => setCreateTweetModalVisible(true)} className="btn btn-primary col-12 rounded-pill fw-bold text-white fs-6">
                     Tweet</button>
-                    <CreateTweetModal
-        isOpen={createTweetModalVisible}
-        onClose={() => setCreateTweetModalVisible(false)} />
-
                     
-                {/* <div className='col-6 mt-2'><Button3 onClick={() => setCreateUserModalVisible(true)}>Inscription</Button3></div> */}
+                    <CreateTweetModal
+                        isOpen={createTweetModalVisible}
+                        onClose={() => setCreateTweetModalVisible(false)} 
+                    />
                 </div>
 
-                {/* onClick={() => setCreateUserModalVisible(true)} */}
-                
-                
                 <div className="post_avatarsidebar">
                     <span className="post_headerspecialsidebar">
                         <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>

@@ -48,7 +48,7 @@ const UserContextProvider = ({ children }) => {
           alert(loginResponse.statusText)
       } else {
         // setUser(user)
-        navigate('/profil')
+        navigate('/home')
       }
   }
 
@@ -97,10 +97,9 @@ const UserContextProvider = ({ children }) => {
 
     if (response.status >= 400) {
       alert(response.statusText)
-  } else {
-  
-      navigate('/profil')
-  }
+    } else {
+      navigate('/home')
+    }
   }
 
   const getTweetsUser = async () =>{

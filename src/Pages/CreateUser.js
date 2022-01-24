@@ -74,8 +74,8 @@ const Button2 = styled.button`
 
 const Button3 = styled.button`
 {
-    background-color:  rgb(29, 155, 240);;
-    border: 2px solid  rgb(29, 155, 240);;
+    background-color:  rgb(29, 155, 240);
+    border: 2px solid  rgb(29, 155, 240);
     border-radius: 50px;
     color: white;
     font-weight: bold;
@@ -122,6 +122,11 @@ const A = styled.a`
     color: gray;
 }
 `
+const A2 = styled.a`
+{
+    text-decoration: none;
+}
+`
 const H3 = styled.h3`
 {
     margin-top:50px;
@@ -132,10 +137,10 @@ const H3 = styled.h3`
 
 const Button4 = styled.button`
 {
-    background-color: white;
-    border: 2px solid  rgb(29, 155, 240);
+    background-color: black;
+    border: 2px solid  black;
     border-radius: 50px;
-    color: rgb(29, 155, 240);
+    color: white;
     font-weight: bold;
     font-size: 0.7em;
     font-size: 14px;
@@ -187,8 +192,8 @@ const CreateUser = () => {
 
                 <div className='col-6 mt-2'><Button3 onClick={() => setCreateUserModalVisible(true)}>Inscription</Button3></div>
                 <Conditions>
-                    <P>En vous inscrivant, vous acceptez les <A href="">Conditions d'Utilisation</A> et la  <A href="">Politique de Confidentialité</A>, 
-                    incluant l' <A href="">Utilisation de Cookies</A>.
+                    <P>En vous inscrivant, vous acceptez les <A2 href="">Conditions d'Utilisation</A2> et la  <A2 href="">Politique de Confidentialité</A2>, 
+                    incluant l' <A2 href="">Utilisation de Cookies</A2>.
                     </P>
                 </Conditions>
 

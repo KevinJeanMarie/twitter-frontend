@@ -3,7 +3,6 @@ import { GrClose } from 'react-icons/gr';
 import styled from 'styled-components'
 import CreateTweetForm from './CreateTweetForm';
 
-
 const PictureTweet = styled.div`
 .picturetweetprofile img {
 border-radius: 50px;
@@ -35,17 +34,19 @@ const CreateTweetModal = ({ isOpen, onClose }) => {
       isOpen={isOpen}
       style={modalStyle}
     > 
-        <GrClose onClick={onClose} />
+
+    <GrClose onClick={onClose} />
     
     <PictureTweet>
-        <div className="picturetweetprofile">
-          <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
-          </div>
-          </PictureTweet>
+      <div className="picturetweetprofile">
+        <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
+      </div>
+    </PictureTweet>
      
-      <CreateTweetForm
-        onClose={onClose}
-      />
+    <CreateTweetForm
+      onClose={onClose}
+    />
+    
     </Modal>
   )
 }

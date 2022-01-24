@@ -9,7 +9,6 @@ const Poss = styled.div`
     align-items: flex-start;
     border-bottom: 1px solid rgb(233, 232, 232);
     padding-bottom: 10px;
-
 }
 
 .post_body {
@@ -44,36 +43,34 @@ const Poss = styled.div`
 }
 
 .post_avatar img {
-border-radius: 50px;
-width: 55px;
-height: 55px;
+    border-radius: 50px;
+    width: 55px;
+    height: 55px;
 }
- .avatar {
+.avatar {
     width: 500px;
 }
 `
 
-
-
 const  Post = () => {
     const { user, getTweetsUser, tweets, getUser  } = useContext(UserContext)
+
     useEffect(()=> {
         getUser()
     },[])
+
     // useEffect(()=> {
     //     getTweetsUser()
     // },[])
 
     if (!user) {
         return <p>Loading...</p>
-      }
+    }
 
     // if (!tweets) {
     //     return <p>Loading...</p>
     //   }
    
- 
-    
     return (
         <>
         <Poss>
@@ -82,6 +79,7 @@ const  Post = () => {
             <div className="post_avatar">
                 <img src="https://ciyaaro.com/wp-content/uploads/2021/05/Chelsea-vs-Real-Madrid.jpg"/>
             </div>
+            
             <div className="post_body">
                 <div className="post_header">
                     <div className="post_headerText">

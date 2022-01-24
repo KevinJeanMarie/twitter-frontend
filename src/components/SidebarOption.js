@@ -29,7 +29,6 @@ const SidbarOption = styled.div`
 /* .sidebarOption--active {
     color: red
 } */
-
 `
 
 
@@ -38,9 +37,9 @@ const SidbarOption = styled.div`
 function SidebarOption({active, text, Icon}) {
     return (
         <SidbarOption>
-        <div className={`sidebarOption ${active && 'sidebarOption--active'}`}>
-            <h2>{Icon}&ensp;&ensp;{text}</h2>
-        </div>
+            <div className={`sidebarOption ${active && 'sidebarOption--active'}`}>
+                <h2>{Icon}&ensp;&ensp;{text}</h2>
+            </div>
         </SidbarOption>
     )
 }
